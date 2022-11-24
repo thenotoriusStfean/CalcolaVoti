@@ -1,0 +1,54 @@
+Please upgrade them to a supported HWE stack or remove them if you
+no longer need them.
+
+Last login: Wed May 11 11:42:23 2022 from 10.13.0.20
+c_utente01@serverStudenti:~$ nano studenti
+c_utente01@serverStudenti:~$ more studenti
+pippo   4c    4
+pippo   4c    7
+pippo   4c    6
+pippo   4c    5
+pippo   4c    9
+
+c_utente01@serverStudenti:~$ nano calcolavoti
+c_utente01@serverStudenti:~$ ./calcolavoti
+-bash: ./calcolavoti: Permesso negato
+c_utente01@serverStudenti:~$ chmod +x calcolavoti
+c_utente01@serverStudenti:~$ ./calcolavoti
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+la media è=2
+c_utente01@serverStudenti:~$ nano studenti
+c_utente01@serverStudenti:~$ ./calcolavoti
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+./calcolavoti: riga 3: let: 4c: valore troppo grande per la base (il token de                                                                                ll'errore è "4c")
+la media è=1
+c_utente01@serverStudenti:~$ nano studenti
+c_utente01@serverStudenti:~$ nano calcolavoti
+c_utente01@serverStudenti:~$ more calcolavoti
+for voti in `grep pippo studenti| cut -f3`
+ do
+        let somma=somma+voti
+        let n=n+1
+done
+        let media=somma/n
+        echo "la media è=$media"
+c_utente01@serverStudenti:~$ more studenti
+pippo   4c    4
+pippo   4c    7
+pippo   4c    6
+pluto   4c    5
+pluto   4c    9
+
+c_utente01@serverStudenti:~$ grep pippo studenti
+pippo   4c    4
+pippo   4c    7
+pippo   4c    6
+c_utente01@serverStudenti:~$ nano studenti
+c_utente01@serverStudenti:~$ ./calcolavoti
+la media è=5
+c_utente01@serverStudenti:~$
